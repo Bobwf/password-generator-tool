@@ -43,10 +43,14 @@ function copySelected() {
     const listBox = document.getElementById('passwordList');
     let selected = Array.from(listBox.selectedOptions).map(opt => opt.textContent);
     if (selected.length > 0) {
-        navigator.clipboard.writeText(selected.join("\n"));
-        alert("Selected passwords copied to clipboard!");
+        navigator.clipboard.writeText(selected.join("\n")).then(() => {
+            alert("Selected passwords copied to clipboard!");
+        }).catch(err => {
+            alert("Failed to copy to clipboard: " + err);
+        });
     }
 }
+
 
 function copyAll() {
     const listBox = document.getElementById('passwordList');
