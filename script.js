@@ -52,6 +52,7 @@ function copySelected() {
 }
 
 
+
 function copyAll() {
     const listBox = document.getElementById('passwordList');
     let all = Array.from(listBox.options).map(opt => opt.textContent);
